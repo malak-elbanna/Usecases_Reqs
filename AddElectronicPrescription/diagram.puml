@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor Doctor
+
+rectangle "EMR System" {
+    Doctor --> (Access Patient Medical Record)
+    Doctor --> (Navigate to 'Add Prescription' Section)
+    Doctor --> (Enter Prescription Details)
+    (Enter Prescription Details) --> (Validate Prescription for Conflicts)
+    (Validate Prescription for Conflicts) --> Doctor : Notify Conflicts <<extend>>
+    Doctor --> (Confirm and Submit Prescription)
+    (Confirm and Submit Prescription) --> (Store Prescription in EMR Database)
+    (Store Prescription in EMR Database) --> (Notify Patient of New Prescription) <<include>>
+    (Store Prescription in EMR Database) --> (Share Prescription with Pharmacies) <<include>>
+}
+
+rectangle "Alternate Scenarios" {
+    (Patient Record Not Found) --> Doctor : Alert <<extend>>
+    (Prescription Conflicts Detected) --> Doctor : Alert <<extend>>
+    (System Error During Submission) --> Doctor : Retry <<extend>>
+}
+@enduml
