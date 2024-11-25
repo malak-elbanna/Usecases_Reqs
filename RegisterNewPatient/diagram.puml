@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+actor Patient
+actor Admin
+
+rectangle "EMR System" {
+    Patient --> (Make Account) : Request
+    (Make Account) --> Admin : ID Provided
+
+    Admin --> (Record Patient Info) : Use ID
+    Admin --> (Fill Missing Info) : Validate Details
+    Admin --> (Save to Database) : Save Info
+    Admin --> (Assign Unique ID) : Generalized ID
+    (Assign Unique ID) --> Patient : ID Provided
+
+    rectangle "Alternate Scenarios" {
+        Admin --> (Check Existing Databases) : Search for Patient
+        (Check Existing Databases) --> Admin : Patient Found
+        Admin --> (Fill Missing Info) : Inquiry to Patient
+        Admin --> (Save to Database) : Save Updated Info
+
+        (System Issue Encountered) <.. (Save to Database) : Notify User
+        note right of (System Issue Encountered)
+          Notify Admin of error and retry
+        end note
+    }
+}
+@enduml
