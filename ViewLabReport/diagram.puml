@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+actor Patient as P
+
+rectangle "Patient Portal System" {
+    usecase "Log in to Portal" as UC1
+    usecase "View Laboratory Tests" as UC2
+    usecase "View Lab Report" as UC4
+    usecase "Download/Print Lab Report" as UC5
+    usecase "Display Error Message" as UC6
+}
+
+P --> UC1
+P --> UC2
+P --> UC4
+UC4 --> UC5
+UC4 --> UC6 : <<extends>>
+@enduml
