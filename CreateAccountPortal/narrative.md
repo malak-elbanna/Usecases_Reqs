@@ -10,10 +10,10 @@
 ### Post-conditions:
     The patient's account is created successfully.
 ### Main Scenario:
-    1. Patient opens the ERM portal from an app or a web browser. 
+    1. Patient opens the EMR portal from an app or a web browser. 
     2. Patient selects "Create Account" from the login page.
-    3. Patient enters their information (Name, Age, Gender, Address, ...etc).
-    4. Patient Clicks "Create".
+    3. Patient fills the required fields and enters their information (Name, Age, Gender, Address, ...etc).
+    4. Patient clicks "Create".
     5. The system validates that the entered data is correct and complete.
     6. System saves the information and notifies the patient that the account is created successfully.
 ### Alternative Scenario:

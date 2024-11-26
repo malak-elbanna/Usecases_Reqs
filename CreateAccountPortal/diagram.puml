@@ -1,3 +1,22 @@
 @startuml
 left to right direction
+actor Patient as p
+
+rectangle "EMR System" {
+    p --> (Open EMR Portal)
+    p --> (Select "Create Account")
+    p --> (Fill the Required Fields)
+    p --> (Clicks Confirm)
+    (Clicks Confirm) ..> (System Validates for Accuracy): <<includes>>
+    (System Validates for Accuracy) ..> (Saves Info and Notifies Patient): <<includes>>
+    (Saves Info and Notifies Patient) --> p: "Account created successfully"
+}
+
+rectangle "Alternative Flow" {
+    (Fill the Required Fields) --> (Forgot to Fill a Field): <<extends>>
+    (Forgot to Fill a Field) --> p: "Please fill all required fields"
+
+    (Saves Info and Notifies Patient) --> (Data Already Exists): <<extends>>
+    (Data Already Exists) --> p: "An account with this information already exists"
+}
 @enduml
