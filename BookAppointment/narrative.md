@@ -1,7 +1,7 @@
 ### Use Case Name:
     Book an Appointment
 ### Actors:
-    Patient, Doctor
+    Patient
 ### Stakeholders:
     Doctor, Reception
 ### Pre-conditions:
