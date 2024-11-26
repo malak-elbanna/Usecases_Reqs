@@ -1,4 +1,22 @@
 @startuml
 left to right direction
+actor Patient as p
+actor Doctor as d
 
+rectangle "EMR System" {
+    p --> (Navigate to "Book Appointment" section)
+    p --> (Select a Speciality)
+    (Select a Speciality) ..> (Search for a Doctor): <<includes>>
+    (Select a Speciality) ..> (Display Available Slots): <<includes>>
+    p --> (Select Appropriate Slot)
+    p --> (Click "Confirm")
+    (Click "Confirm") ..> (Verify Appointment for Conflicts): <<includes>>
+    (Verify Appointment for Conflicts) ..> (Notify Patient and Doctor): <<includes>>
+    (Notify Patient and Doctor) --> d: Notification
+}
+
+rectangle "Alternative Flow" {
+    (Verify Appointment for Conflicts) --> (Contain Conflicts)
+    p <-- (Contain Conflicts) : alert <<extends>
+}
 @enduml
