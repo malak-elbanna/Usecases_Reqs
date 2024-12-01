@@ -2,6 +2,7 @@
 'https://plantuml.com/use-case-diagram
 actor Admin
 
+
 rectangle "Audit Trail System" {
     Admin --> (Access System Logs) : Select Option
     (Access System Logs) --> (Review Logs) : View Recent Events
