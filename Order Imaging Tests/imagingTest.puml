@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+actor Medical_Staff
+
+rectangle "Imaging Request System" {
+    Medical_Staff --> (Access Patient Profile) : Select Patient
+    (Access Patient Profile) --> (Select Request Imaging) : Choose Imaging Option
+    (Select Request Imaging) --> (Fill Request Details) : Provide Information
+    (Fill Request Details) --> (Validate Request) : Check for Errors
+    (Validate Request) --> (Submit Request) : Confirm Submission
+    (Submit Request) --> (Assign Lab) : Assign to Imaging Dept.
+    (Assign Lab) --> (Generate Request ID) : Create Unique ID
+    (Generate Request ID) --> (Display in Workflow) : Add to Lab Queue
+    (Display in Workflow) --> (Link to Patient Profile) : Associate with Patient
+
+    rectangle "Alternative Scenarios" {
+        (Field Errors) <.. (Validate Request) : Highlight Issues
+        (Prevent Submission) <.. (Submit Request) : Block Submission
+    }
+}
+
+@enduml
