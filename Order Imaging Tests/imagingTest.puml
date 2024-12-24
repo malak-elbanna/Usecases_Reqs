@@ -1,5 +1,6 @@
 @startuml
 'https://plantuml.com/use-case-diagram
+left to right direction
 actor Medical_Staff
 
 rectangle "Imaging Request System" {

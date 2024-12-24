@@ -19,8 +19,9 @@
 #### Main Scenarios:
     1. The user selects the "Access Medical History" option on the system dashboard.  
     2. The user enters the patient’s unique identifier (e.g., national ID or registration number).  
-    3. The system retrieves the patient’s medical history, including diagnoses, treatments, prescriptions, allergies, and immunizations.  
-    4. The user reviews the retrieved information.  
+    3. The system retrieves the patient’s medical history, including diagnoses, treatments, prescriptions, allergies, and immunizations. 
+    4. The system retrieves the billing information.
+    5. The user reviews the retrieved information.  
 
 #### Alternate Scenarios:
     2a. Patient not found:  

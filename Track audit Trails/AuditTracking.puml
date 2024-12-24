@@ -1,12 +1,11 @@
 @startuml
-'https://plantuml.com/use-case-diagram
 actor Admin
-
 
 rectangle "Audit Trail System" {
     Admin --> (Access System Logs) : Select Option
     (Access System Logs) --> (Review Logs) : View Recent Events
     (Review Logs) --> (Analyze Data) : Identify Trends/Anomalies
+    (Analyze Data) --> (Review Financial Changes) : Check Transactions
     Admin --> (Create Report) : Select Action
     (Create Report) --> (Generate Summary) : Compile Data
     (Generate Summary) --> Admin : Download/View Report
@@ -15,5 +14,4 @@ rectangle "Audit Trail System" {
         (Permission Denied) <.. (Access System Logs) : Notify Error
     }
 }
-
 @enduml

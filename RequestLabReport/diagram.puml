@@ -6,20 +6,21 @@ actor "Laboratory Personnel" as LP
 
 rectangle "Lab Portal System" {
     usecase "Log in to Portal" as UC1
-    usecase "View Laboratories" as UC2
+    usecase "Navigate to 'Manage Lab Tests' Page" as UC2
     usecase "Select Laboratory" as UC3
     usecase "Enter Test Identifier" as UC4
-    usecase "Request Lab Report" as UC5
-    usecase "Notify Laboratory Personnel" as UC6
-    usecase "Upload Lab Report" as UC7
-    usecase "View/Download Report" as UC8
+    usecase "Enter Payment Method" as UC5
+    usecase "Submit Request for Lab Report" as UC6
+    usecase "Notify Laboratory Personnel" as UC7
+    usecase "Upload Lab Report" as UC8
+    usecase "View/Download Report" as UC9
 }
 
 rectangle "Alternate Scenarios" {
-    usecase "System Unavailable" as UC9
-    usecase "Test Already Requested" as UC10
-    usecase "Laboratory Not Selected" as UC11
-    usecase "Invalid Test Identifier" as UC12
+    usecase "System Unavailable" as UC10
+    usecase "Test Already Requested" as UC11
+    usecase "Laboratory Not Selected" as UC12
+    usecase "Invalid Test Identifier" as UC13
 }
 
 P --> UC1
@@ -27,13 +28,14 @@ P --> UC2
 P --> UC3
 P --> UC4
 P --> UC5
-UC5 --> UC6
-LP --> UC7
-P --> UC8
+P --> UC6
+UC6 --> UC7
+LP --> UC8
+P --> UC9
 
-UC5 --> UC9 : <<extends>>
-UC5 --> UC10 : <<extends>>
-UC3 --> UC11 : <<extends>>
-UC4 --> UC12 : <<extends>>
+UC6 --> UC10 : <<extends>>
+UC6 --> UC11 : <<extends>>
+UC3 --> UC12 : <<extends>>
+UC4 --> UC13 : <<extends>>
 
 @enduml

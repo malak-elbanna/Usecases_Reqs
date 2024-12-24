@@ -10,12 +10,12 @@
 ### Post-conditions:
     Patient is added to the centralized EMR database.
 #### Main Scenarios:
-    1. Request the patient to make an account on the EMR system.
-    2. The system gives the patient a unique ID for future correspondence.
-    3. The admin should use the ID to access and record the patient's info.
-    4. The admin should fill any gaps and add the new patient to the centralized database.
-    3. Fill in the profile for the patient.
-    4. Save patient's info
+    1. The patient creates an account on the EMR system.
+    2. The system generates a unique ID for the patient to ensure future correspondence.
+    3. The admin uses the unique ID to retrieve the patient's information from the system.
+    4. The admin fills in any missing information (such as personal details, health insurance, etc.) in the patient’s profile.
+    5. The admin validates and saves the patient’s information into the centralized EMR database.
+    6. The system confirms that the patient’s profile has been successfully saved and notifies the patient of their successful account creation.
 ### Alternate Scenarios:
     1a. The patient is already found in any of the hospital's databases.
         System Action: The system highlights that the user is already registered and clarifies which database they are on.

@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+actor Patient
+actor "Pharmacy Staff" as PS
+actor "MIS System" as MIS
+actor "Financial System" as FS
+
+rectangle "Pharmacy Charges System" {
+    usecase "Create Pharmacy Charge" as UC1
+    usecase "Update Pharmacy Charge" as UC2
+    usecase "Link Pharmacy Charge to Billing" as UC3
+    usecase "Process Pharmacy Payment" as UC4
+}
+
+Patient --> UC3 : View Charge
+PS --> UC1 : Create Charge
+PS --> UC2 : Update Charge
+PS --> UC4 : Process Payment
+MIS --> UC3 : Retrieve Charge Info
+FS --> UC4 : Payment Processing
+
+rectangle "Alternative Scenarios" {
+    usecase "Invalid Prescription" as UC5
+    usecase "Payment Failure" as UC6
+}
+
+UC1 --> UC5 : <<extends>>
+UC4 --> UC6 : <<extends>>
+
+@enduml

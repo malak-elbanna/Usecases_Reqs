@@ -1,22 +1,28 @@
 @startuml
 left to right direction
+
 actor Patient as p
 
 rectangle "EMR System" {
     p --> (Open EMR Portal)
     p --> (Select "Create Account")
-    p --> (Fill the Required Fields)
-    p --> (Clicks Confirm)
-    (Clicks Confirm) ..> (System Validates for Accuracy): <<includes>>
-    (System Validates for Accuracy) ..> (Saves Info and Notifies Patient): <<includes>>
-    (Saves Info and Notifies Patient) --> p: "Account created successfully"
+    p --> (Fill Required Information)
+    (Fill Required Information) ..> (Add Health Insurance Information): <<includes>>
+    p --> (Click "Create")
+    (Click "Create") ..> (Validate Data Completeness and Correctness): <<includes>>
+    (Validate Data Completeness and Correctness) ..> (Save Patient Information): <<includes>>
+    (Save Patient Information) --> (Notify Patient of Successful Account Creation)
+    (Notify Patient of Successful Account Creation) --> p: "Account created successfully"
 }
 
 rectangle "Alternative Flow" {
-    (Fill the Required Fields) --> (Forgot to Fill a Field): <<extends>>
-    (Forgot to Fill a Field) --> p: "Please fill all required fields"
+    (Fill Required Information) --> (Missing Required Fields): <<extends>>
+    (Missing Required Fields) --> p: "Please fill all required fields"
 
-    (Saves Info and Notifies Patient) --> (Data Already Exists): <<extends>>
-    (Data Already Exists) --> p: "An account with this information already exists"
+    (Validate Data Completeness and Correctness) --> (Invalid Health Insurance Information): <<extends>>
+    (Invalid Health Insurance Information) --> p: "Invalid health insurance information"
+
+    (Save Patient Information) --> (Duplicate Account Found): <<extends>>
+    (Duplicate Account Found) --> p: "An account with this information already exists"
 }
 @enduml

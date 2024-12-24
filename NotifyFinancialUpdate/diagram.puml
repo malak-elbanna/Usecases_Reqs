@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+
+actor Patient
+actor "Hospital Staff" as Staff
+actor "MIS System" as MIS
+actor "Financial System" as FS
+
+rectangle "Financial Notifications System" {
+    usecase "Notify Financial Updates" as UC1
+    usecase "Send Payment Confirmation" as UC2
+    usecase "Send Pending Dues Notification" as UC3
+    usecase "Send Payment Reminder" as UC4
+    usecase "Notify Hospital Staff" as UC5
+}
+
+Patient --> UC1 : Receive Notification
+Staff --> UC5 : Receive Staff Notification
+MIS --> UC1 : Trigger Notifications
+FS --> UC1 : Provide Payment Info
+
+UC1 --> UC2 : <<includes>>
+UC1 --> UC3 : <<includes>>
+UC1 --> UC4 : <<includes>>
+UC5 --> UC2 : <<includes>>
+UC5 --> UC3 : <<includes>>
+UC5 --> UC4 : <<includes>>
+
+rectangle "Alternate Scenarios" {
+    usecase "No Payment Made" as UC6
+    usecase "Payment Confirmation Failed" as UC7
+}
+
+UC6 -left-> UC3 : <<extends>>
+UC7 -left-> UC4 : <<extends>>
+
+@enduml

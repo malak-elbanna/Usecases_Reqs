@@ -5,18 +5,21 @@ actor Doctor as d
 
 rectangle "EMR System" {
     p --> (Navigate to "Book Appointment" section)
-    p --> (Select a Speciality)
-    (Select a Speciality) ..> (Search for a Doctor): <<includes>>
-    (Select a Speciality) ..> (Display Available Slots): <<includes>>
-    p --> (Select Appropriate Slot)
+    p --> (Search for a Specific Doctor)
+    (Search for a Specific Doctor) ..> (View Available Doctors and Time Slots): <<includes>>
+    p --> (Choose a Suitable Slot)
+    p --> (Choose Payment Method)
+    (Choose Payment Method) ..> (Enter Payment Details): <<includes>>
+    (Enter Payment Details) --> (Confirm Payment)
     p --> (Click "Confirm")
     (Click "Confirm") ..> (Verify Appointment for Conflicts): <<includes>>
-    (Verify Appointment for Conflicts) ..> (Notify Patient and Doctor): <<includes>>
+    (Verify Appointment for Conflicts) ..> (Update Schedule in System): <<includes>>
+    (Update Schedule in System) ..> (Notify Patient and Doctor): <<includes>>
     (Notify Patient and Doctor) --> d: Notification
 }
 
 rectangle "Alternative Flow" {
     (Verify Appointment for Conflicts) --> (Contain Conflicts)
-    p <-- (Contain Conflicts) : alert <<extends>
+    p <-- (Contain Conflicts) : alert <<extends>>
 }
 @enduml

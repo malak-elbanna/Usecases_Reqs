@@ -11,13 +11,15 @@
     The appointment is booked and a confirmation message is sent to the patient and the doctor.
 
 ### Main Scenario:
-    1. The patient navigates to the "Book appointment" section.
-    2. The patient selects a speciality or searches for a specific doctor.
-    3. The system dsiplays the doctors of the selected speciality and their available slots.
-    4. The patient selects the appropriate slot.
-    5. The patient clicks "Confirm".
-    6. The system verifies that the selected slot has no conflicts.
-    7. The system updates the schedule and notifies the patient and the doctor.
+    1. The patient logs into the EMR system and navigates to the "Book Appointment" section.
+    2. The patient selects a specialty or searches for a specific doctor.
+    3. The system displays available doctors and time slots for the selected specialty.
+    4. The patient chooses a suitable time slot from the displayed options.
+    5. The patient selects the payment method (e.g., cash, insurance, or card).
+    6. The patient clicks "Confirm" to finalize the booking.
+    7. The system verifies that the selected slot is conflict-free and available.
+    8. The system updates the schedule to include the new appointment.
+    9. The system sends a confirmation notification to both the patient and the doctor.
 ### Alternative Scenario:
     2a. The searched doctor is not found
         System action: The system displays an error message that the entered data is invalid 

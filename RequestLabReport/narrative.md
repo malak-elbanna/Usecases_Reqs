@@ -19,13 +19,14 @@
 
 ### Main Scenario
     1. The patient logs into the portal and navigates to the "Manage Lab Tests" page.
-    2. The system displays a list of all available labs where the patient may have undergone tests.
+    2. The system displays a list of laboratories where the patient may have undergone tests.
     3. The patient selects the laboratory where the test was conducted.
-    4. The system prompts the patient to enter the serial number or unique identifier of the test.
-    5. The patient submits a request for the lab report.
-    6. The system notifies the laboratory personnel about the request.
-    7. Once the lab report is ready, the laboratory personnel upload or push the report to the portal.
-    8. The patient receives a notification and can view/download the lab report.
+    4. The system prompts the patient to enter the serial number or unique identifier for the test.
+    5. The patient enters their payment method.
+    6. The patient submits the request for the lab report.
+    7. The system notifies the laboratory personnel about the lab report request.
+    8. Laboratory personnel upload or push the report to the portal.
+    9. The patient receives a notification and can view or download the lab report.
 
 ### Alternate Scenarios
 

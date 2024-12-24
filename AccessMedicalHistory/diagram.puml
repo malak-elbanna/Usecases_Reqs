@@ -2,6 +2,7 @@
 left to right direction
 actor Admin
 actor "Medical Staff" as Staff
+left to right direction
 
 rectangle "EMR System" {
     Admin --> (Access Medical History) : Select Option
@@ -10,10 +11,12 @@ rectangle "EMR System" {
     (Enter Patient ID) --> (Retrieve Medical History)
     (Retrieve Medical History) --> Admin : Display Medical History
     (Retrieve Medical History) --> Staff : Display Medical History
+    (Retrieve Medical History) --> (Retrieve Billing History) : Sync with Financial System
+    (Retrieve Billing History) --> Admin : Display Billing Info
+    (Retrieve Billing History) --> Staff : Display Billing Info
 
     rectangle "Alternate Scenarios" {
         (Patient Not Found) <.. (Enter Patient ID) : Notify Error
-
     }
 }
 @enduml

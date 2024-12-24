@@ -1,6 +1,4 @@
 @startuml
-'https://plantuml.com/use-case-diagram
-!pragma layout smetana
 left to right direction
 
 actor Patient
@@ -14,6 +12,7 @@ rectangle "Billing System" as System {
     usecase "Enter Card Information" as UC5
     usecase "Enter OTP and Confirm" as UC6
     usecase "Receive Payment Confirmation" as UC7
+    usecase "Sync with Financial System" as UC9
     usecase "Pay with Cash" as UC8
 }
 
@@ -24,8 +23,10 @@ UC3 --> UC4 : If Card is selected
 UC4 --> UC5
 UC5 --> UC6
 UC6 --> UC7
+UC7 --> UC9
 
 UC3 --> UC8 : If Cash is selected
 Receptionist --> UC8
+UC8 --> UC9 : Update Financial Records
 
 @enduml
